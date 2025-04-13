@@ -1,0 +1,20 @@
+🧠 Learnings & Project Evolution
+During the initial stages of development, we experimented with a variety of hardware components to build the smart helmet system. Our first approach involved using multiple microcontrollers—Arduino Uno and Arduino Nano—along with several sensors and modules, including:
+
+SIM800L GSM Module for communication
+NEO-6M GPS Module for location tracking
+NRF24L01 for wireless communication
+Pulse Sensor for heart rate monitoring
+MPU6050 for motion and impact detection
+MQ3 Sensor for alcohol detection
+
+However, as development progressed, we encountered significant limitations with the Uno and Nano in terms of memory, speed, and handling multiple peripherals simultaneously. The SIM800L module also proved to be unreliable in our setup due to power requirements and unstable connectivity.
+To streamline the architecture, we decided to replace the Arduino Nano and GSM/GPS modules with a more efficient setup. Our revised plan involved:
+
+Using an ESP32 in the helmet unit to handle sensors and logic.
+Keeping an Arduino Uno on the bike side.
+Utilizing the mobile phone’s SIM and GPS (via MacroDroid) to simplify hardware complexity.
+
+During implementation, we ran into several issues while working with the NRF24L01 module, particularly with pairing and data reliability during communication. This led us to transition both units (helmet and bike) to ESP32, leveraging ESP-NOW for seamless, low-latency wireless communication.
+This final architecture proved to be far more stable and efficient, allowing us to successfully complete the project with reliable sensor integration, ignition control, and wireless communication between the two ESP32 units.
+
